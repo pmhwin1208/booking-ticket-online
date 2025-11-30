@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Quản Lý Rạp Phim</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="sidebar">
+    <h2 class="logo">🎬 Admin</h2>
+    <ul>
+        <li class="active" data-section="movies">Quản Lý Phim</li>
+        <li data-section="cinemas">Quản Lý Rạp & Phòng</li>
+        <li data-section="showtimes">Quản Lý Suất Chiếu</li>
+        <li data-section="reports">Báo Cáo Doanh Thu</li>
+    </ul>
+</div>
+
+<div class="main">
+    <!-- Movies Section -->
+    <div class="section" id="movies">
+        <header>
+            <h1>Quản Lý Phim</h1>
+            <button id="btnAddMovie" class="btn action-btn">+ Thêm phim</button>
+        </header>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Poster</th>
+                        <th>Tên phim</th>
+                        <th>Thể loại</th>
+                        <th>Thời lượng</th>
+                        <th>Trạng thái</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody id="movieTable"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Cinemas Section -->
+    <div class="section" id="cinemas" style="display:none">
+        <header>
+            <h1>Quản Lý Rạp & Phòng Chiếu</h1>
+            <button id="btnAddCinema" class="btn action-btn">+ Thêm Rạp</button>
+        </header>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tên Rạp</th>
+                        <th>Địa Chỉ</th>
+                        <th>Phòng</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody id="cinemaTable"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Showtimes Section -->
+    <div class="section" id="showtimes" style="display:none">
+        <header>
+            <h1>Quản Lý Suất Chiếu</h1>
+            <button id="btnAddShowtime" class="btn action-btn">+ Thêm Suất Chiếu</button>
+        </header>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Phim</th>
+                        <th>Rạp</th>
+                        <th>Phòng</th>
+                        <th>Giờ Chiếu</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody id="showtimeTable"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Reports Section -->
+    <div class="section" id="reports" style="display:none">
+        <header>
+            <h1>Báo Cáo Doanh Thu</h1>
+        </header>
+        <canvas id="revenueChart" width="400" height="200"></canvas>
+    </div>
+</div>
+
+<!-- Modal chung -->
+<div id="modalBackdrop" class="modal-backdrop">
+    <div class="modal">
+        <h2 id="modalTitle">Thêm mới</h2>
+        <div id="modalBody"></div>
+        <div class="modal-footer">
+            <button id="btnCancel" class="btn cancel">Hủy</button>
+            <button id="btnSave" class="btn save">Lưu</button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
